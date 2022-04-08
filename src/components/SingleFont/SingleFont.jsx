@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {
   ButtonBody,
   CardBody,
@@ -15,9 +15,13 @@ import {
   MediumBtn,
 } from './SingleFont.Styled'
 import WebFont from 'webfontloader'
+import { CustomTextContext } from '../SearchEngine/SearchEngine'
 
 const SingleFont = ({ font }) => {
+  const customText = useContext(CustomTextContext)
+
   const { family, category } = font
+  
 
   useEffect(() => {
     WebFont.load({
@@ -26,6 +30,7 @@ const SingleFont = ({ font }) => {
       },
     })
   }, [family])
+
 
   return (
     <Container>
@@ -36,9 +41,7 @@ const SingleFont = ({ font }) => {
         </TopPart>
 
         <MiddlePart>
-          <Demo style={{ fontFamily: `${family}` }}>
-            A slow brown fox could not jump over the wall
-          </Demo>
+          <Demo style={{ fontFamily: `${family}` }}>{customText}</Demo>
         </MiddlePart>
 
         {/* prettier-ignore */}

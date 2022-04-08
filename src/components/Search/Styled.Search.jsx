@@ -2,10 +2,16 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   margin-top: 6rem;
+  display:flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  /* align-items: center; */
+  gap:3rem;
+
 `
 export const Styledform = styled.form`
   display: flex;
-  justify-content: center;
+  
 `
 export const Input = styled.input`
   padding: 0.5rem 1rem;
@@ -14,6 +20,13 @@ export const Input = styled.input`
   border-right: none;
   outline: none;
   display: block;
+`
+
+export const CustomInput = styled.input`
+  border: none;
+  border-bottom:2px solid #bdbdbd;
+  background-color: transparent;
+  outline:none;
 `
 
 export const SearchBtn = styled.button`

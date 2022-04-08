@@ -9,6 +9,7 @@ const Fonts = ({searchFonts}) => {
         <SingleFont
           key={Math.floor(Math.random() * Math.pow(10, 15))}
           font={font}
+      
           >
         </SingleFont>))
       }
