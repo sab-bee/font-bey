@@ -10,11 +10,13 @@ export const Navbar = styled.nav`
   height: 5rem;
   justify-content: space-between;
   align-items: center;
-  width: 1360px;
+  width: 70%;
   margin: 0 auto;
 
   & a {
     text-decoration: none;
+    color: black;
+    padding-bottom: 1.6rem;
   }
 `
 export const Logo = styled.h2`
@@ -26,10 +28,3 @@ export const Navigation = styled.div`
   gap: 3.25rem;
 `
 
-export const ContainerFluid = styled.div`
-  width: ${(props) => props.width};
-  margin: 0 auto;
-  margin-top: ${(props) => props.mt};
-  display: ${(props) => (props.flex ? 'flex' : 'block')};
-  justify-content: center;
-`

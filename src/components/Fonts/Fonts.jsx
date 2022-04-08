@@ -1,4 +1,4 @@
-import React from 'react'
+
 import SingleFont from '../SingleFont/SingleFont'
 import { FontsContainer } from './Fonts.Styled'
 
@@ -12,6 +12,7 @@ const Fonts = ({ searchFonts }) => {
           font={font}
         ></SingleFont>
       ))}
+      
     </FontsContainer>
   )
 }

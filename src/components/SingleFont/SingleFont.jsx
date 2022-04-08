@@ -18,7 +18,7 @@ import WebFont from 'webfontloader'
 
 const SingleFont = ({ font }) => {
   const { family, category } = font
-  console.log(font)
+  
 
   useEffect(() => {
     WebFont.load({
