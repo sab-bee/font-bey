@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const NavWraper = styled.div`
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
-  `
+`
 
 export const Navbar = styled.nav`
   display: flex;
@@ -24,4 +24,12 @@ export const Logo = styled.h2`
 export const Navigation = styled.div`
   display: flex;
   gap: 3.25rem;
+`
+
+export const ContainerFluid = styled.div`
+  width: ${(props) => props.width};
+  margin: 0 auto;
+  margin-top: ${(props) => props.mt};
+  display: ${(props) => (props.flex ? 'flex' : 'block')};
+  justify-content: center;
 `

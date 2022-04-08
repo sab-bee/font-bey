@@ -1,24 +1,27 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import Fonts from '../Fonts/Fonts'
+import UseFonts from '../hooks/UseFonts'
+import Search from '../Search/Search'
+import { Container } from './Styled.Home'
 
 function Home() {
-  const [fonts, setFonts] = useState([])
-  const apikey = 'AIzaSyC1NhmA4X2D6fS93J5pMX-wlAiyqfeRMV0'
-  const url =
-    'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyC1NhmA4X2D6fS93J5pMX-wlAiyqfeRMV0'
+  const allFonts = UseFonts()
+  const [searchFonts, setSearchFonts] = useState([])
 
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setFonts(data.items))
-  }, [])
-
-  function getSerif() {
-    const serif = fonts.filter((font) => font.category === 'sans-serif')
-    console.log(serif)
+  const searchHandler = (event) => {
+    const searchTest = event.target.value.toLowerCase()
+    const match = allFonts.filter((font) =>
+      font.family.toLowerCase().includes(searchTest)
+    )
+    setSearchFonts(match)
   }
-  return <div>
-    <button onClick={getSerif}>get serif</button>
-  </div>
+
+  return (
+    <Container>
+      <Search searchHandler={searchHandler}></Search>
+      <Fonts searchFonts={searchFonts}></Fonts>
+    </Container>
+  )
 }
 
 export default Home
