@@ -11,7 +11,7 @@ const Search = ({ searchHandler, submitHandler }) => {
         <Input
           onBlur={(event) => setSearchText(event.target.value)}
           type='text'
-          placeholder='search fonts...'
+          placeholder='search fonts by name...'
         />
         <SearchBtn onClick={() => searchHandler(searchText)} type='submit'>
           search

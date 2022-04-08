@@ -1,7 +1,7 @@
 import SingleFont from '../SingleFont/SingleFont'
 import { FontsContainer } from './Fonts.Styled'
 
-const Fonts = ({ searchFonts, choosedCategory }) => {
+const Fonts = ({searchFonts}) => {
   return (
     // prettier-ignore
     <FontsContainer>
@@ -9,7 +9,7 @@ const Fonts = ({ searchFonts, choosedCategory }) => {
         <SingleFont
           key={Math.floor(Math.random() * Math.pow(10, 15))}
           font={font}
-          choosedCategory={choosedCategory}>
+          >
         </SingleFont>))
       }
     </FontsContainer>
