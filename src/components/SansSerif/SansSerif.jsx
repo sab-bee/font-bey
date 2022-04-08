@@ -1,14 +1,9 @@
-import React, { useState } from 'react'
-import UseFonts from '../hooks/UseFonts'
+import SearchEngine from '../SearchEngine/SearchEngine'
 
 const SansSerif = () => {
-  const fonts = UseFonts('sans-serif')
+  const choosedCategory = ['sans-serif']
 
-  return (
-    <div>
-      <h2>{}</h2>
-    </div>
-  )
+  return <SearchEngine choosedCategory={choosedCategory}></SearchEngine>
 }
 
 export default SansSerif

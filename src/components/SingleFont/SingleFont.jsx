@@ -16,9 +16,8 @@ import {
 } from './SingleFont.Styled'
 import WebFont from 'webfontloader'
 
-const SingleFont = ({ font }) => {
+const SingleFont = ({ font, choosedCategory }) => {
   const { family, category } = font
-  
 
   useEffect(() => {
     WebFont.load({
@@ -28,7 +27,7 @@ const SingleFont = ({ font }) => {
     })
   }, [family])
 
-  return (
+  return !choosedCategory.includes(category) ? undefined : (
     <Container>
       <CardBody>
         <TopPart>
