@@ -8,6 +8,7 @@ export const Container = styled.div`
   justify-content: space-between;
   border-radius: 1rem;
   overflow: hidden;
+  box-shadow: 0px 1px 15px #e0e0e0;
 `
 
 export const CardBody = styled.div`
@@ -17,7 +18,6 @@ export const CardBody = styled.div`
   justify-content: space-between;
   height: 100%;
   /* border: 1px solid #e0e0e0; */
-
 `
 
 export const TopPart = styled.div``
@@ -72,12 +72,12 @@ export const ButtonBody = styled.div`
   & button {
     padding: 1rem;
     outline: 1px solid #ececec;
-    background-color: transparent;
+    background-color: #ffffff;
     font-weight: 600;
-    color: #8e919c;
+    color: #31333e;
 
     :hover {
-      background-color: #31333E;
+      background-color: #31333e;
       color: #fafafa;
     }
   }

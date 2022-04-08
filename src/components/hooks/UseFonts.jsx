@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function UseFonts() {
+function UseFonts(category) {
   const [fonts, setFonts] = useState([])
 
   // const apikey = 'AIzaSyC1NhmA4X2D6fS93J5pMX-wlAiyqfeRMV0'
@@ -15,6 +15,10 @@ function UseFonts() {
       })
   }, [])
 
+  const customCactegory = fonts.filter((font) => font.category === category)
+  if (customCactegory.length !== 0) {
+    return customCactegory
+  }
   return fonts
 }
 

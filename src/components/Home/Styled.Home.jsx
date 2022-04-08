@@ -3,6 +3,15 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 70%;
   margin: 0 auto;
+  margin-bottom: 4rem;
+
+`
+
+export const StyledP = styled.p`
+  font-weight: 600;
+  & span{
+    font-size:1.5rem;
+  }
 `
 export const BtnWraper = styled.div`
   text-align: center;

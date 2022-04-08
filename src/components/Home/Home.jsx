@@ -2,7 +2,7 @@ import { createContext, useState } from 'react'
 import Fonts from '../Fonts/Fonts'
 import UseFonts from '../hooks/UseFonts'
 import Search from '../Search/Search'
-import { Container,MoreBtn,BtnWraper } from './Styled.Home'
+import { Container, MoreBtn, BtnWraper, StyledP } from './Styled.Home'
 
 export const ButtonContext = createContext(null)
 
@@ -11,8 +11,10 @@ function Home() {
 
   const [searchFonts, setSearchFonts] = useState([])
   const [fontsCount, setfontsCount] = useState(20)
+  const [isSearched, setIsSearched] = useState(false)
 
   const searchHandler = (value) => {
+    setIsSearched(true)
     const searchTest = value.toLowerCase()
     const match = allFonts.filter((font) =>
       font.family.toLowerCase().includes(searchTest)
@@ -25,21 +27,26 @@ function Home() {
   }
 
   return (
-    
-      <Container>
-        <Search
-          searchHandler={searchHandler}
-          submitHandler={submitHandler}
-        ></Search>
-        <Fonts searchFonts={searchFonts.slice(0, fontsCount)}></Fonts>
-        {searchFonts.length === 0 || (
+    //  prettier-ignore
+    <Container>
+      <Search
+        searchHandler={searchHandler}
+        submitHandler={submitHandler}>
+      </Search>
+
+      {
+        !isSearched || <StyledP><span>{searchFonts.length}</span> results found</StyledP>
+      }
+
+      <Fonts searchFonts={searchFonts.slice(0, fontsCount)}></Fonts>
+      {searchFonts.length <= 20 || (
         <BtnWraper>
           <MoreBtn onClick={() => setfontsCount(fontsCount + 20)}>
             show more
           </MoreBtn>
         </BtnWraper>
       )}
-      </Container>
+    </Container>
   )
 }
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import UseFonts from '../hooks/UseFonts'
 
 const SansSerif = () => {
-  const fonts = UseFonts()
+  const fonts = UseFonts('sans-serif')
 
   return (
     <div>
