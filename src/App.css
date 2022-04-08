@@ -16,3 +16,10 @@ button, input {
   font-family: inherit;
   font-size: inherit;
 }
+
+button {
+  cursor: pointer;
+  transition: .2s ease;
+  outline: none;
+  border: none;
+}

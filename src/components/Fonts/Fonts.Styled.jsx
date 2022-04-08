@@ -4,5 +4,6 @@ export const FontsContainer = styled.div`
   margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  gap: 6rem;
+  width:1153px;
 `

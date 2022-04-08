@@ -2,8 +2,17 @@ import React, { useEffect } from 'react'
 import {
   ButtonBody,
   CardBody,
-  SingleFontContainer,
+  MiddlePart,
+  Container,
   TopPart,
+  BottomPart,
+  Demo,
+  Family,
+  Category,
+  RegularBtn,
+  LightBtn,
+  SemiBoldBtn,
+  MediumBtn,
 } from './SingleFont.Styled'
 import WebFont from 'webfontloader'
 
@@ -20,19 +29,33 @@ const SingleFont = ({ font }) => {
   }, [family])
 
   return (
-    <SingleFontContainer>
+    <Container>
       <CardBody>
-        {/* <h3 style={{fontFamily:`${family}`}}>{family}</h3> */}
         <TopPart>
-          <p>{family}</p>
-          <p>{category}</p>
+          <Family>{family}</Family>
+          <Category>{category}</Category>
         </TopPart>
+
+        <MiddlePart>
+          <Demo style={{ fontFamily: `${family}` }}>
+            A slow brown fox could not jump over the wall
+          </Demo>
+        </MiddlePart>
+
+        {/* prettier-ignore */}
+        <BottomPart>
+          <SemiBoldBtn><p>Aa</p></SemiBoldBtn>
+          <MediumBtn><p>Aa</p></MediumBtn>
+          <RegularBtn><p>Aa</p></RegularBtn>
+          <LightBtn><p>Aa</p></LightBtn>
+        </BottomPart>
       </CardBody>
+
       <ButtonBody>
         <button>copy</button>
         <button>add</button>
       </ButtonBody>
-    </SingleFontContainer>
+    </Container>
   )
 }
 
