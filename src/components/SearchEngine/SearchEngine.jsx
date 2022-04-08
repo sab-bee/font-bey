@@ -1,28 +1,28 @@
 import React, { createContext, useState } from 'react'
 import Fonts from '../Fonts/Fonts'
-import UseFonts from '../hooks/UseFonts'
 import Search from '../Search/Search'
 import { BtnWraper, Container, MoreBtn, StyledP } from './Syled.SearchEngine'
 
-
 export const CustomTextContext = createContext(null)
-const SearchEngine = ({choosedCategory, allFonts}) => {
+const SearchEngine = ({ allFonts }) => {
   // console.log(allFonts)
-  const [searchFonts, setSearchFonts] = useState(allFonts)
+  const [searchFonts, setSearchFonts] = useState([])
   const [fontsCount, setfontsCount] = useState(20)
   const [isSearched, setIsSearched] = useState(false)
 
-  const [customText, setCustomText] = useState('A slow brown fox could not jump over the wall')
-  
+  const [customText, setCustomText] = useState(
+    'A slow brown fox could not jump over the wall'
+  )
+
   const searchHandler = (value) => {
     setIsSearched(true)
     const searchTest = value.toLowerCase()
     const textMatch = allFonts.filter((font) =>
       font.family.toLowerCase().includes(searchTest)
     )
-    const categoryMatched = textMatch.filter((font) => choosedCategory.includes(font.category))
+    // const categoryMatched = textMatch.filter((font) => choosedCategory.includes(font.category))
 
-    setSearchFonts(categoryMatched)
+    setSearchFonts(textMatch)
   }
 
   const submitHandler = (event) => {
@@ -42,22 +42,31 @@ const SearchEngine = ({choosedCategory, allFonts}) => {
         searchHandler={searchHandler}
         submitHandler={submitHandler}
         writeSomethingHandler={writeSomethingHandler}
-        isSearched={isSearched}>
+        // isSearched={isSearched} use it if u dont want to type cutom para before search
+        >
       </Search>
 
       {
-        !isSearched || <StyledP><span>{searchFonts.length}</span> results found</StyledP>
+        <StyledP><span>{isSearched ? searchFonts.length : allFonts.length}</span> results found</StyledP>
       }
 
       <Fonts 
-      searchFonts={searchFonts.slice(0, fontsCount)}></Fonts>
-      {searchFonts.length <= 20 || (
+      searchFonts={searchFonts.length === 0 ? allFonts.slice(0, fontsCount) : searchFonts.slice(0, fontsCount)}></Fonts>
+
+      {
+      isSearched?
+      searchFonts.length <= 20 || (
         <BtnWraper>
           <MoreBtn onClick={() => setfontsCount(fontsCount + 20)}>
             show more
           </MoreBtn>
         </BtnWraper>
-      )}
+      ): allFonts.length <= 20 || (
+        <BtnWraper>
+          <MoreBtn onClick={() => setfontsCount(fontsCount + 20)}>
+            show more
+          </MoreBtn>
+        </BtnWraper>)}
     </Container>
     </CustomTextContext.Provider>
   )

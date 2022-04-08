@@ -26,8 +26,8 @@ const Search = ({ searchHandler, submitHandler, writeSomethingHandler,isSearched
       <CustomInput
         onChange={writeSomethingHandler}
         type='text'
-        placeholder='then wirte something'
-        disabled = {!isSearched}
+        placeholder='wirte something'
+        // disabled = {!isSearched}
       ></CustomInput>
     </Container>
   )

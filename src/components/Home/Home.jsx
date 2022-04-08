@@ -1,16 +1,20 @@
-
 import UseFonts from '../hooks/UseFonts'
 import SearchEngine from '../SearchEngine/SearchEngine'
 
-
 function Home() {
-  const choosedCategory = ['sans-serif','serif','monospace','display','handwriting']
+  const chooseCategory = [
+    'sans-serif',
+    'serif',
+    'monospace',
+    'display',
+    'handwriting',
+  ]
 
-  const allFonts = UseFonts()
+  const allFonts = UseFonts(chooseCategory)
 
   return (
     <>
-      <SearchEngine choosedCategory={choosedCategory} allFonts={allFonts}></SearchEngine>
+      <SearchEngine allFonts={allFonts}></SearchEngine>
     </>
   )
 }
