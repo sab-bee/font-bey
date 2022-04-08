@@ -2,13 +2,21 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   height: 456px;
-  background-color: white;
+  background-color: #f7f7f8;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0px 1px 15px #e0e0e0;
+  cursor: pointer;
+  outline: 4px solid transparent;
+  transition: 0.2s ease;
+  /* box-shadow: 0px 1px 15px #e0e0e0; */
+  :hover {
+    background-color: #1e88e5;
+    color:white;
+    outline-color: #BBDEFB;
+  }
 `
 
 export const CardBody = styled.div`
@@ -45,8 +53,17 @@ export const BottomPart = styled.div`
     font-size: 20px;
     padding: 0.5rem;
     border-radius: 0.5rem;
+
+    ${Container}:hover & {
+      color: white;
+      :hover {
+        background-color: #82B1FF;
+      }
+    }
+
     :hover {
-      background-color: #e0e0e0;
+      background-color: #d1c4e9;
+      color: #424242;
     }
   }
 `
@@ -71,14 +88,19 @@ export const ButtonBody = styled.div`
 
   & button {
     padding: 1rem;
-    outline: 1px solid #ececec;
-    background-color: #ffffff;
+    outline: 2px solid #ececec;
+    background-color: #f7f7f8;
+    color: #424242;
     font-weight: 600;
-    color: #31333e;
 
-    :hover {
-      background-color: #31333e;
-      color: #fafafa;
+    ${Container}:hover & {
+      outline-color: #90caf9;
+      /* background-color: #5e35b1; */
+      color: #1e88e5;
+      :hover {
+        background-color: #1e88e5;
+        color: white;
+      }
     }
   }
 `

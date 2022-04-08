@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const NavWraper = styled.div`
   background-color: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #64B5F6;
 `
 
 export const Navbar = styled.nav`
@@ -17,10 +17,16 @@ export const Navbar = styled.nav`
     text-decoration: none;
     color: black;
     padding-bottom: 1.6rem;
+    border-bottom: 4px solid transparent;
+    transition:.2s ease;
+
+    :hover {
+      color:#2962FF;
+    }
   }
 `
 export const Logo = styled.h2`
-  color: #31333e;
+  color: #2962FF;
 `
 
 export const Navigation = styled.div`

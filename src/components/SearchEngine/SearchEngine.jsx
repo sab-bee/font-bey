@@ -6,10 +6,9 @@ import { BtnWraper, Container, MoreBtn, StyledP } from './Syled.SearchEngine'
 
 
 export const CustomTextContext = createContext(null)
-const SearchEngine = ({choosedCategory}) => {
-  const allFonts = UseFonts()
-
-  const [searchFonts, setSearchFonts] = useState([])
+const SearchEngine = ({choosedCategory, allFonts}) => {
+  // console.log(allFonts)
+  const [searchFonts, setSearchFonts] = useState(allFonts)
   const [fontsCount, setfontsCount] = useState(20)
   const [isSearched, setIsSearched] = useState(false)
 
@@ -22,7 +21,7 @@ const SearchEngine = ({choosedCategory}) => {
       font.family.toLowerCase().includes(searchTest)
     )
     const categoryMatched = textMatch.filter((font) => choosedCategory.includes(font.category))
-    // console.log(categoryMatched)
+
     setSearchFonts(categoryMatched)
   }
 
@@ -31,7 +30,8 @@ const SearchEngine = ({choosedCategory}) => {
   }
 
   const writeSomethingHandler = (event) => {
-    !isSearched || setCustomText(event.target.value)
+    // !isSearched || setCustomText(event.target.value)
+    setCustomText(event.target.value)
   }
 
   return (
