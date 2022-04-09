@@ -6,12 +6,14 @@ const Slider = ({ handleFontSize, fontSize }) => {
       <StyledSlider
         type='range'
         min={8}
-        max={50}
+        max={80}
         value={fontSize}
         onChange={(e) => handleFontSize(e.target.value)}
       />
       <div>
-        <span style={{ color: 'gray', fontWeight: '500' }}>{fontSize}px | {(fontSize/16).toFixed(2)} rem</span>
+        <span style={{ color: 'gray', fontWeight: '500' }}>
+          {fontSize}px | {(fontSize / 16).toFixed(2)} rem
+        </span>
       </div>
     </SliderWraper>
   )
@@ -41,6 +43,19 @@ const StyledSlider = styled.input`
     width: 15px;
     border-radius: 100%;
     background-color: #2962ff;
+    transition: 0.2s ease;
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &::-moz-range-thumb {
+    background-color: #2962ff;
+    border: none;
+    transition: 0.2s ease;
+    :hover {
+      transform: scale(1.1);
+    }
   }
 `
 export default Slider

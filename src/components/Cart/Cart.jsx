@@ -4,13 +4,15 @@ import * as S from './Cart.styled'
 const Cart = ({ cartFonts }) => {
   return (
     <S.Cart>
-      <div>
-        <S.Title>Font Drop</S.Title>
-        {cartFonts.map((font, index) => (
-          <Font key={index} font={font}></Font>
-        ))}
+      <S.Container>
+        <div>
+          <S.Title>Font Drop</S.Title>
+          {cartFonts.map((font, index) => (
+            <Font key={index} font={font}></Font>
+          ))}
+        </div>
         <S.CopyAllBtn>copy all</S.CopyAllBtn>
-      </div>
+      </S.Container>
     </S.Cart>
   )
 }

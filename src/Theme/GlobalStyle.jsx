@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     scrollbar-width: thin;
-    scrollbar-color: #1e88e5 #96b6fa;
+    scrollbar-color: #1e88e5 #dce6ff;
   
     ::-webkit-scrollbar {
       width: 10px;
