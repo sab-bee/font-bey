@@ -11,6 +11,7 @@ export const Card = styled.div`
   cursor: pointer;
   outline: 4px solid transparent;
   transition: 0.2s ease;
+
   /* box-shadow: 0px 1px 15px #e0e0e0; */
   :hover {
     background-color: #1e88e5;
@@ -24,6 +25,7 @@ export const CardBody = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  word-wrap: break-word;
   height: 100%;
 `
 

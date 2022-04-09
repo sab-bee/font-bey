@@ -20,7 +20,7 @@ const Search = ({
           onChange={(event) => setSearchText(event.target.value)}
           type='text'
           placeholder='search fonts by name...'
-          onKeyPress={(event) =>
+          onKeyUp={(event) =>
             event.key === 'Enter' && searchHandler(searchText)
           }
         />
@@ -29,7 +29,7 @@ const Search = ({
         </S.SearchBtn>
       </S.Form>
       <S.CustomInput
-        onChange={writeSomethingHandler}
+        onKeyUp={writeSomethingHandler}
         type='text'
         placeholder='wirte something'
       ></S.CustomInput>

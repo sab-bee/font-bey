@@ -1,14 +1,14 @@
 
 import styled from 'styled-components'
 
-const Slider = ({ handleFontSize, fontSize}) => {
+const Slider = ({ handleFontSize,fontSize}) => {
 
   return (
     <SliderWraper>
       <StyledSlider
         type='range'
-        min={0}
-        max={200}
+        min={8}
+        max={50}
         value={fontSize}
         onChange={(e) => handleFontSize(e.target.value)}
       />
@@ -19,7 +19,7 @@ const Slider = ({ handleFontSize, fontSize}) => {
 export const SliderWraper = styled.div`
   margin: 1.5rem 0;
   text-align: center;
-  width: 100%;
+  width: 85%;
 `
 const StyledSlider = styled.input`
   -webkit-appearance: none;

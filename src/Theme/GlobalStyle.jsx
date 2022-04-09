@@ -1,8 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
+  
   * {
     margin: 0;
     padding: 0;
@@ -26,5 +25,25 @@ export const GlobalStyle = createGlobalStyle`
     transition: 0.2s ease;
     outline: none;
     border: none;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+/* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #96b6fa; 
+    border-radius: 10px;
+  }
+ 
+/* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #1e88e5; 
+    border-radius: 10px;
+  }
+
+/* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1b79cc; 
   }
 `

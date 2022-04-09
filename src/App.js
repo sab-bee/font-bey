@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import * as Com from './components'
 import NotFound from './components/NotFound/NotFound'
+import './app.css'
 
 import { GlobalStyle } from './Theme/GlobalStyle'
 
