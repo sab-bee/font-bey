@@ -9,6 +9,7 @@ const SearchEngine = ({ allFonts }) => {
   const [searchFonts, setSearchFonts] = useState([])
   const [fontsCount, setfontsCount] = useState(20)
   const [isSearched, setIsSearched] = useState(false)
+  console.log(fontsCount)
 
   const [customText, setCustomText] = useState(
     'A slow brown fox could not jump over the wall'
@@ -16,6 +17,7 @@ const SearchEngine = ({ allFonts }) => {
 
   const searchHandler = (value) => {
     setIsSearched(true)
+    setfontsCount(20)
     const searchTest = value.toLowerCase()
     const textMatch = allFonts.filter((font) =>
       font.family.toLowerCase().includes(searchTest)
@@ -34,40 +36,50 @@ const SearchEngine = ({ allFonts }) => {
     setCustomText(event.target.value)
   }
 
-  return (
-    //  prettier-ignore
-    <CustomTextContext.Provider value={customText}>
-      <Container>
-      <Search
-        searchHandler={searchHandler}
-        submitHandler={submitHandler}
-        writeSomethingHandler={writeSomethingHandler}
-        // isSearched={isSearched} use it if u dont want to type cutom para before search
-        >
-      </Search>
+  const fontLoader = () => {
+    let fonts = []
+    if (isSearched) {
+      fonts = [...searchFonts]
+    } else {
+      fonts = [...allFonts]
+    }
 
-      {
-        <StyledP><span>{isSearched ? searchFonts.length : allFonts.length}</span> results found</StyledP>
-      }
-
-      <Fonts 
-      searchFonts={searchFonts.length === 0 ? allFonts.slice(0, fontsCount) : searchFonts.slice(0, fontsCount)}></Fonts>
-
-      {
-      isSearched?
-      searchFonts.length <= 20 || (
+    if (fonts.length <= 20) {
+      return undefined
+    } else {
+      return (
         <BtnWraper>
           <MoreBtn onClick={() => setfontsCount(fontsCount + 20)}>
             show more
           </MoreBtn>
         </BtnWraper>
-      ): allFonts.length <= 20 || (
-        <BtnWraper>
-          <MoreBtn onClick={() => setfontsCount(fontsCount + 20)}>
-            show more
-          </MoreBtn>
-        </BtnWraper>)}
-    </Container>
+      )
+    }
+  }
+
+  return (
+    //  prettier-ignore
+    <CustomTextContext.Provider value={customText}>
+      <Container>
+        <Search
+          searchHandler={searchHandler}
+          submitHandler={submitHandler}
+          writeSomethingHandler={writeSomethingHandler}
+          // isSearched={isSearched} use it if u dont want to type cutom para before search
+          >
+        </Search>
+
+        {
+          <StyledP><span>{isSearched ? searchFonts.length : allFonts.length}</span> results found</StyledP>
+        }
+
+        <Fonts 
+          searchFonts={searchFonts.length === 0 ? allFonts.slice(0, fontsCount) : searchFonts.slice(0, fontsCount)}>
+        </Fonts>
+
+        {fontLoader()}
+        
+      </Container>
     </CustomTextContext.Provider>
   )
 }

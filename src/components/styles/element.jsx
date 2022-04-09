@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const NavWraper = styled.div`
   background-color: #ffffff;
   border-bottom: 1px solid #64B5F6;
+  position: sticky;
+  top:0;
 `
 
 export const Navbar = styled.nav`
