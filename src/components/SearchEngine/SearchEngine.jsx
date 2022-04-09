@@ -10,21 +10,19 @@ const SearchEngine = ({ allFonts }) => {
   const [searchFonts, setSearchFonts] = useState([])
   const [fontsCount, setfontsCount] = useState(20)
   const [isSearched, setIsSearched] = useState(false)
-  console.log(fontsCount)
 
   const [customText, setCustomText] = useState(
     'A slow brown fox could not jump over the wall'
   )
 
   const searchHandler = (value) => {
+    
     setIsSearched(true)
     setfontsCount(20)
     const searchTest = value.toLowerCase()
     const textMatch = allFonts.filter((font) =>
       font.family.toLowerCase().includes(searchTest)
     )
-    // const categoryMatched = textMatch.filter((font) => choosedCategory.includes(font.category))
-
     setSearchFonts(textMatch)
   }
 
@@ -33,7 +31,6 @@ const SearchEngine = ({ allFonts }) => {
   }
 
   const writeSomethingHandler = (event) => {
-    // !isSearched || setCustomText(event.target.value)
     setCustomText(event.target.value)
   }
 
@@ -66,13 +63,14 @@ const SearchEngine = ({ allFonts }) => {
           searchHandler={searchHandler}
           submitHandler={submitHandler}
           writeSomethingHandler={writeSomethingHandler}
+          totalFontFound = {isSearched? searchFonts.length : allFonts.length}
           // isSearched={isSearched} use it if u dont want to type cutom para before search
           >
         </Search>
 
-        {
+        {/* {
           <S.Result><span>{isSearched ? searchFonts.length : allFonts.length}</span> results found</S.Result>
-        }
+        } */}
 
         <Fonts 
           searchFonts={searchFonts.length === 0 ? allFonts.slice(0, fontsCount) : searchFonts.slice(0, fontsCount)}>

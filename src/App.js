@@ -16,7 +16,7 @@ function App() {
           element={<Com.SansSerif></Com.SansSerif>}
         ></Route>
         <Route path='/serif' element={<Com.Serif></Com.Serif>}></Route>
-        <Route path='/display' element={<Com.Display></Com.Display>}></Route>
+        <Route path='/monospace' element={<Com.MonoSpace></Com.MonoSpace>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </>

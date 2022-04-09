@@ -12,7 +12,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'inter', sans-serif;
     font-size: 18px;
-    background-color: #ffffff;
     height: 101vh;
   }
 

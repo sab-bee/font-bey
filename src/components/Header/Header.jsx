@@ -14,7 +14,7 @@ function Header() {
           <CustomLink to='/'>Home</CustomLink>
           <CustomLink to='/sans-serif'>Sans Serif</CustomLink>
           <CustomLink to='/serif'>Serif</CustomLink>
-          <CustomLink to='/display'>Display</CustomLink>
+          <CustomLink to='/monospace'>Mono Space</CustomLink>
         </S.Menu>
       </S.Navbar>
     </S.NavbarGroup>
