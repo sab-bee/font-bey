@@ -1,35 +1,27 @@
 import { useState } from 'react'
-// import { ContainerFluid } from '../styles/element'
-import {
-  Input,
-  CustomInput,
-  SearchBtn,
-  Styledform,
-  Container,
-} from './Styled.Search'
+import * as S from './Search.Styled'
 
-const Search = ({ searchHandler, submitHandler, writeSomethingHandler,isSearched }) => {
+const Search = ({ searchHandler, submitHandler, writeSomethingHandler }) => {
   const [searchText, setSearchText] = useState('')
 
   return (
-    <Container>
-      <Styledform onSubmit={submitHandler}>
-        <Input
+    <S.Container>
+      <S.Form onSubmit={submitHandler}>
+        <S.Input
           onBlur={(event) => setSearchText(event.target.value)}
           type='text'
           placeholder='search fonts by name...'
         />
-        <SearchBtn onClick={() => searchHandler(searchText)} type='submit'>
+        <S.SearchBtn onClick={() => searchHandler(searchText)} type='submit'>
           search
-        </SearchBtn>
-      </Styledform>
-      <CustomInput
+        </S.SearchBtn>
+      </S.Form>
+      <S.CustomInput
         onChange={writeSomethingHandler}
         type='text'
         placeholder='wirte something'
-        // disabled = {!isSearched}
-      ></CustomInput>
-    </Container>
+      ></S.CustomInput>
+    </S.Container>
   )
 }
 

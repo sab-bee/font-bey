@@ -6,23 +6,22 @@ export const Container = styled.div`
   margin-bottom: 4rem;
 
 `
-
-export const StyledP = styled.p`
+export const P = styled.p`
   font-weight: 600;
   & span{
     font-size:1.5rem;
   }
 `
-export const BtnWraper = styled.div`
+export const ButtonGroup = styled.div`
   text-align: center;
   width: 85%;
 `
-export const MoreBtn = styled.button`
-  padding: 0.5rem 1rem;
+export const MoreActionButton = styled.button`
+  padding: 1rem 1rem;
   color: white;
   justify-self: center;
   align-self: center;
-  background-color: #31333e;
-  border-radius: .2rem;
+  background-color: #2962FF;
+  border-radius: .8rem;
   margin : 2rem 0;
 `

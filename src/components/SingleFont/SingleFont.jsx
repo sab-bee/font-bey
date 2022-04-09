@@ -1,27 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
-import {
-  ButtonBody,
-  CardBody,
-  MiddlePart,
-  Container,
-  TopPart,
-  BottomPart,
-  Demo,
-  Family,
-  Category,
-  RegularBtn,
-  LightBtn,
-  SemiBoldBtn,
-  MediumBtn,
-} from './SingleFont.Styled'
 import WebFont from 'webfontloader'
+import React, { useContext, useEffect } from 'react'
 import { CustomTextContext } from '../SearchEngine/SearchEngine'
+import * as S from './SingleFont.Styled'
 
 const SingleFont = ({ font }) => {
   const customText = useContext(CustomTextContext)
 
   const { family, category } = font
-  
 
   useEffect(() => {
     WebFont.load({
@@ -31,33 +16,34 @@ const SingleFont = ({ font }) => {
     })
   }, [family])
 
-
   return (
-    <Container>
-      <CardBody>
-        <TopPart>
-          <Family>{family}</Family>
-          <Category>{category}</Category>
-        </TopPart>
+    <S.Card>
+      <S.CardBody>
+        <S.TopPart>
+          <S.FamilyTitle>{family}</S.FamilyTitle>
+          <S.CategoryTitle>{category}</S.CategoryTitle>
+        </S.TopPart>
 
-        <MiddlePart>
-          <Demo style={{ fontFamily: `${family}` }}>{customText}</Demo>
-        </MiddlePart>
+        <S.MiddleGroup>
+          <S.DemoTitle style={{ fontFamily: `${family}` }}>
+            {customText}
+          </S.DemoTitle>
+        </S.MiddleGroup>
 
         {/* prettier-ignore */}
-        <BottomPart>
-          <SemiBoldBtn><p>Aa</p></SemiBoldBtn>
-          <MediumBtn><p>Aa</p></MediumBtn>
-          <RegularBtn><p>Aa</p></RegularBtn>
-          <LightBtn><p>Aa</p></LightBtn>
-        </BottomPart>
-      </CardBody>
+        <S.BottomGroup>
+          <S.FontWeightButton fw='600'><p>Aa</p></S.FontWeightButton>
+          <S.FontWeightButton fw='500'><p>Aa</p></S.FontWeightButton>
+          <S.FontWeightButton fw='400'><p>Aa</p></S.FontWeightButton>
+          <S.FontWeightButton fw='300'><p>Aa</p></S.FontWeightButton>
+        </S.BottomGroup>
+      </S.CardBody>
 
-      <ButtonBody>
+      <S.ButtonGroup>
         <button>copy</button>
         <button>add</button>
-      </ButtonBody>
-    </Container>
+      </S.ButtonGroup>
+    </S.Card>
   )
 }
 

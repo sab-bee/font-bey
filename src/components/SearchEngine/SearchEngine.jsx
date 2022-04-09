@@ -1,7 +1,8 @@
 import React, { createContext, useState } from 'react'
 import Fonts from '../Fonts/Fonts'
 import Search from '../Search/Search'
-import { BtnWraper, Container, MoreBtn, StyledP } from './Syled.SearchEngine'
+
+import * as S from './SearchEngine.Styled'
 
 export const CustomTextContext = createContext(null)
 const SearchEngine = ({ allFonts }) => {
@@ -48,11 +49,11 @@ const SearchEngine = ({ allFonts }) => {
       return undefined
     } else {
       return (
-        <BtnWraper>
-          <MoreBtn onClick={() => setfontsCount(fontsCount + 20)}>
+        <S.ButtonGroup>
+          <S.MoreActionButton onClick={() => setfontsCount(fontsCount + 20)}>
             show more
-          </MoreBtn>
-        </BtnWraper>
+          </S.MoreActionButton>
+        </S.ButtonGroup>
       )
     }
   }
@@ -60,7 +61,7 @@ const SearchEngine = ({ allFonts }) => {
   return (
     //  prettier-ignore
     <CustomTextContext.Provider value={customText}>
-      <Container>
+      <S.Container>
         <Search
           searchHandler={searchHandler}
           submitHandler={submitHandler}
@@ -70,7 +71,7 @@ const SearchEngine = ({ allFonts }) => {
         </Search>
 
         {
-          <StyledP><span>{isSearched ? searchFonts.length : allFonts.length}</span> results found</StyledP>
+          <S.P><span>{isSearched ? searchFonts.length : allFonts.length}</span> results found</S.P>
         }
 
         <Fonts 
@@ -79,7 +80,7 @@ const SearchEngine = ({ allFonts }) => {
 
         {fontLoader()}
         
-      </Container>
+      </S.Container>
     </CustomTextContext.Provider>
   )
 }

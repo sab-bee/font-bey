@@ -3,12 +3,10 @@ import styled from 'styled-components'
 export const Container = styled.div`
   margin-top: 6rem;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
-  /* align-items: center; */
   gap: 3rem;
 `
-export const Styledform = styled.form`
+export const Form = styled.form`
   display: flex;
 `
 export const Input = styled.input`
@@ -48,9 +46,6 @@ export const CustomInput = styled.input`
 export const SearchBtn = styled.button`
   background-color: #2962FF;
   color:white;
-  /* position: absolute; */
   padding: 0.5rem 1rem;
-  /* right:0; */
-  /* border: 2px solid #bdbdbd; */
   border-radius: 0 0.5rem 0.5rem 0;
 `
