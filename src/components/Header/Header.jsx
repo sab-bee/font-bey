@@ -1,23 +1,23 @@
 import { CustomLink } from '../CustomLink/CustomLink'
-import { Logo, Navbar, Navigation, NavWraper } from '../styles/element'
+import * as S from './Header.Styled'
 
 function Header() {
   return (
-    <NavWraper>
-      <Navbar>
+    <S.NavbarGroup>
+      <S.Navbar>
         <div>
           <CustomLink to='/'>
-            <Logo>font.bey</Logo>
+            <S.Logo>font.bey</S.Logo>
           </CustomLink>
         </div>
-        <Navigation>
+        <S.Menu>
           <CustomLink to='/'>Home</CustomLink>
           <CustomLink to='/sans-serif'>Sans Serif</CustomLink>
           <CustomLink to='/serif'>Serif</CustomLink>
           <CustomLink to='/display'>Display</CustomLink>
-        </Navigation>
-      </Navbar>
-    </NavWraper>
+        </S.Menu>
+      </S.Navbar>
+    </S.NavbarGroup>
   )
 }
 

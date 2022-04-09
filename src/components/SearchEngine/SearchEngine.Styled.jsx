@@ -6,17 +6,18 @@ export const Container = styled.div`
   margin-bottom: 4rem;
 
 `
-export const P = styled.p`
+export const Result = styled.p`
   font-weight: 600;
   & span{
     font-size:1.5rem;
+    color:#2962FF;
   }
 `
 export const ButtonGroup = styled.div`
   text-align: center;
   width: 85%;
 `
-export const MoreActionButton = styled.button`
+export const ViewButton = styled.button`
   padding: 1rem 1rem;
   color: white;
   justify-self: center;

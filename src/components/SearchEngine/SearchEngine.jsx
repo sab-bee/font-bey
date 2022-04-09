@@ -50,9 +50,9 @@ const SearchEngine = ({ allFonts }) => {
     } else {
       return (
         <S.ButtonGroup>
-          <S.MoreActionButton onClick={() => setfontsCount(fontsCount + 20)}>
-            show more
-          </S.MoreActionButton>
+          <S.ViewButton onClick={() => setfontsCount(fontsCount + 20)}>
+            view more
+          </S.ViewButton>
         </S.ButtonGroup>
       )
     }
@@ -71,7 +71,7 @@ const SearchEngine = ({ allFonts }) => {
         </Search>
 
         {
-          <S.P><span>{isSearched ? searchFonts.length : allFonts.length}</span> results found</S.P>
+          <S.Result><span>{isSearched ? searchFonts.length : allFonts.length}</span> results found</S.Result>
         }
 
         <Fonts 
