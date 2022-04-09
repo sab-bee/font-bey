@@ -1,7 +1,6 @@
 import React, { createContext, useState } from 'react'
 import Fonts from '../Fonts/Fonts'
 import Search from '../Search/Search'
-
 import * as S from './SearchEngine.Styled'
 
 export const CustomTextContext = createContext(null)
@@ -11,12 +10,12 @@ const SearchEngine = ({ allFonts }) => {
   const [fontsCount, setfontsCount] = useState(20)
   const [isSearched, setIsSearched] = useState(false)
 
+
   const [customText, setCustomText] = useState(
     'A slow brown fox could not jump over the wall'
   )
 
   const searchHandler = (value) => {
-    
     setIsSearched(true)
     setfontsCount(20)
     const searchTest = value.toLowerCase()
@@ -57,7 +56,7 @@ const SearchEngine = ({ allFonts }) => {
 
   return (
     //  prettier-ignore
-    <CustomTextContext.Provider value={customText}>
+    <CustomTextContext.Provider value={[customText]}>
       <S.Container>
         <Search
           searchHandler={searchHandler}
@@ -79,6 +78,7 @@ const SearchEngine = ({ allFonts }) => {
         {fontLoader()}
         
       </S.Container>
+
     </CustomTextContext.Provider>
   )
 }

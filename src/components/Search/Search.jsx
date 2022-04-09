@@ -20,7 +20,9 @@ const Search = ({
           onChange={(event) => setSearchText(event.target.value)}
           type='text'
           placeholder='search fonts by name...'
-          onKeyPress={(event)=> event.key === 'Enter' && searchHandler(searchText)}
+          onKeyPress={(event) =>
+            event.key === 'Enter' && searchHandler(searchText)
+          }
         />
         <S.SearchBtn onClick={() => searchHandler(searchText)} type='submit'>
           search
@@ -31,6 +33,7 @@ const Search = ({
         type='text'
         placeholder='wirte something'
       ></S.CustomInput>
+    
     </S.Container>
   )
 }

@@ -1,12 +1,18 @@
 import WebFont from 'webfontloader'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CustomTextContext } from '../SearchEngine/SearchEngine'
 import * as S from './SingleFont.Styled'
+import Slider from '../Slider/Slider'
 
 const SingleFont = ({ font }) => {
   const customText = useContext(CustomTextContext)
-
   const { family, category } = font
+
+  const [fontSize, setFontSize] = useState(32)
+
+  const handleFontSize = (size) => {
+    setFontSize(size)
+  }
 
   useEffect(() => {
     WebFont.load({
@@ -25,7 +31,7 @@ const SingleFont = ({ font }) => {
         </S.TopPart>
 
         <S.MiddleGroup>
-          <S.DemoTitle style={{ fontFamily: `${family}` }}>
+          <S.DemoTitle style={{ fontFamily: `${family}`,fontSize: `${fontSize}px`}}>
             {customText}
           </S.DemoTitle>
         </S.MiddleGroup>
@@ -38,6 +44,8 @@ const SingleFont = ({ font }) => {
           <S.FontWeightButton fw='300'><p>Aa</p></S.FontWeightButton>
         </S.BottomGroup>
       </S.CardBody>
+
+      <Slider handleFontSize={handleFontSize} fontSize={fontSize}></Slider>
 
       <S.ButtonGroup>
         <button>copy</button>

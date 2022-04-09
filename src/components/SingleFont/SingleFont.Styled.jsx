@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
-  height: 456px;
+  min-height: 456px;
   background-color: #f7f7f8;
   display: flex;
   flex-direction: column;
@@ -80,7 +80,7 @@ export const ButtonGroup = styled.div`
     padding: 1rem;
     outline: 2px solid #ececec;
     background-color: #f7f7f8;
-    color: #424242;
+    color: #8E919C;
     font-weight: 600;
 
     ${Card}:hover & {
