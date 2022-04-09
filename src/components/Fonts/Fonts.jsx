@@ -9,12 +9,19 @@ const Fonts = ({ searchFonts }) => {
   const [cartFonts, setCartFonts] = useState([])
   const handleFontSize = (size) => {
     setFontSize(size)
-    console.log(fontSize)
   }
 
-  const handleCart = (font) => {
-    const newCart = [...cartFonts, font]
-    setCartFonts(newCart)
+  const handleAddToCart = (font) => {
+    const exist = cartFonts.find((ft) => font.family === ft.family)
+    if (!exist) {
+      const newCart = [...cartFonts, font]
+      setCartFonts(newCart)
+    }
+  }
+
+  const handleRemoveThis = (font) => {
+    const rest = cartFonts.filter((ft) => font.family !== ft.family)
+    setCartFonts(rest)
   }
   return (
     <>
@@ -25,11 +32,13 @@ const Fonts = ({ searchFonts }) => {
             key={Math.floor(Math.random() * Math.pow(10, 15))}
             font={font}
             fontSize={fontSize}
-            handleCart={handleCart}
+            handleAddToCart={handleAddToCart}
+         
           ></SingleFont>
         ))}
       </S.FontsContainer>
-      <Cart cartFonts = {cartFonts}></Cart>
+      <Cart cartFonts={cartFonts} handleRemoveThis={handleRemoveThis}></Cart>
+  
     </>
   )
 }

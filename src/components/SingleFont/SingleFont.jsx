@@ -3,10 +3,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { CustomTextContext } from '../SearchEngine/SearchEngine'
 import * as S from './SingleFont.Styled'
 
-const SingleFont = ({ font, fontSize, handleCart }) => {
+const SingleFont = ({ font, fontSize, handleAddToCart }) => {
   const customText = useContext(CustomTextContext)
   const { family, category } = font
   const [fontWeight, setFontWeight] = useState(400)
+  const [isCopied, setIsCopied] = useState(false)
+  const [isAdded, setIsAdded] = useState(false)
 
   useEffect(() => {
     WebFontConfig.load({
@@ -23,7 +25,12 @@ const SingleFont = ({ font, fontSize, handleCart }) => {
 
     url += `${res}:wght@300;400;500;600;700;800&display=swap');`
     navigator.clipboard.writeText(url)
+    setIsCopied(true)
+    setTimeout(() => {
+      setIsCopied(false)
+    }, 1000)
   }
+  
   // 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
   return (
@@ -56,8 +63,15 @@ const SingleFont = ({ font, fontSize, handleCart }) => {
       </S.CardBody>
 
       <S.ButtonGroup>
-        <button onClick={handleCopyFont}>copy</button>
-        <button onClick={() => handleCart(font)}>add</button>
+        <button onClick={handleCopyFont}>{isCopied ? 'copied' : 'copy'}</button>
+        <button
+          onClick={() => {
+            setIsAdded(true)
+            handleAddToCart(font)
+          }}
+        >
+          {isAdded ? 'added' : 'add'}
+        </button>
       </S.ButtonGroup>
     </S.Card>
   )

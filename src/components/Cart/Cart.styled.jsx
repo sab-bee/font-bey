@@ -17,10 +17,16 @@ export const Container = styled.div`
   justify-content: space-between;
 `
 
+export const Empty = styled.p`
+  font-size: 2rem;
+  color: #90CAF9;
+  text-align: center;
+`
+
 export const Title = styled.p`
   margin: 4rem 0;
   text-align: center;
-  color: #899bff;
+  color: #1e88e5;
   font-size: 1.25rem;
 `
 
@@ -39,10 +45,14 @@ export const RemoveBtn = styled.button`
   padding: 1rem;
   border-radius: 0.3rem;
   background-color: #dee8ff;
+  :hover {
+    background-color : #EF5350;
+    color:white;
+  }
 `
 
 export const CopyAllBtn = styled.button`
-  background-color: #1e88e5;
+  background-color: #2962ff;
   color: white;
   width: 100%;
   padding: 1rem;

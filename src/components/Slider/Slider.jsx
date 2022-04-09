@@ -11,9 +11,9 @@ const Slider = ({ handleFontSize, fontSize }) => {
         onChange={(e) => handleFontSize(e.target.value)}
       />
       <div>
-        <span style={{ color: 'gray', fontWeight: '500' }}>
+        <Unit>
           {fontSize}px | {(fontSize / 16).toFixed(2)} rem
-        </span>
+        </Unit>
       </div>
     </SliderWraper>
   )
@@ -57,5 +57,10 @@ const StyledSlider = styled.input`
       transform: scale(1.1);
     }
   }
+`
+
+export const Unit = styled.span`
+  font-weight:500;
+  color: #2196F3;
 `
 export default Slider

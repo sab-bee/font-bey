@@ -14,8 +14,8 @@ export const Card = styled.div`
 
   /* box-shadow: 0px 1px 15px #e0e0e0; */
   :hover {
-    background-color: #1e88e5;
-    color: white;
+    background-color: #BBDEFB;
+    color: #1976D2;
     outline-color: #bbdefb;
   }
 `
@@ -56,9 +56,10 @@ export const BottomGroup = styled.div`
     border-radius: 0.5rem;
 
     ${Card}:hover & {
-      color: white;
+      color: #1976D2;
       :hover {
         background-color: #82b1ff;
+        color:white;
       }
     }
 
@@ -90,7 +91,7 @@ export const ButtonGroup = styled.div`
       /* background-color: #5e35b1; */
       color: #1e88e5;
       :hover {
-        background-color: #1e88e5;
+        background-color: #0288D1;
         color: white;
       }
     }

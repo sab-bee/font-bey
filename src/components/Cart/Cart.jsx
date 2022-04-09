@@ -1,27 +1,48 @@
-import React from 'react'
 import * as S from './Cart.styled'
 
-const Cart = ({ cartFonts }) => {
+const Cart = ({ cartFonts, handleRemoveThis }) => {
+  // const [fontLink, setFontLink] = useState('')
+  const getLink = () => {
+    const families = cartFonts.map((font) => {
+      const family = font.family
+      const arr = family.split(' ')
+      const str = arr.join('+')
+      return str
+    })
+
+    let prefix = `@import url('https://fonts.googleapis.com/css2?`
+    let postfix = `display=swap');`
+    const famsWithWt = families.map(
+      (fam) => `family=${fam}:wght@300;400;500;600&`
+    )
+    const combined = famsWithWt.join('')
+    navigator.clipboard.writeText(prefix + combined + postfix)
+  }
+
   return (
     <S.Cart>
       <S.Container>
         <div>
           <S.Title>Font Drop</S.Title>
-          {cartFonts.map((font, index) => (
-            <Font key={index} font={font}></Font>
+          { cartFonts.length === 0 ? <S.Empty>empty</S.Empty>:
+          cartFonts.map((font, index) => (
+            <Font
+              key={index}
+              font={font}
+              handleRemoveThis={handleRemoveThis}
+            ></Font>
           ))}
         </div>
-        <S.CopyAllBtn>copy all</S.CopyAllBtn>
+        <S.CopyAllBtn onClick={getLink}>copy all</S.CopyAllBtn>
       </S.Container>
     </S.Cart>
   )
 }
-
-function Font({ font }) {
+function Font({ font, handleRemoveThis }) {
   return (
     <S.ItemGroup>
       <S.Item>{font.family}</S.Item>
-      <S.RemoveBtn>X</S.RemoveBtn>
+      <S.RemoveBtn onClick={() => handleRemoveThis(font)}>X</S.RemoveBtn>
     </S.ItemGroup>
   )
 }

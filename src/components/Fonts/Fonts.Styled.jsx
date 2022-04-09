@@ -4,11 +4,10 @@ export const FontsContainer = styled.div`
   margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6rem;
+  gap: 4rem;
   width: 85%;
 
   @media screen and (max-width: 1280px) {
-  grid-template-columns: repeat(2, 1fr);
-
+    grid-template-columns: repeat(2, 1fr);
   }
 `
