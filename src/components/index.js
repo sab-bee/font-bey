@@ -4,4 +4,5 @@ import Serif from './Serif/Serif'
 import SansSerif from './SansSerif/SansSerif'
 import Display from './Display/Display'
 import MonoSpace from './MonoSpace/MonoSpace'
-export { Header, Home, Serif, SansSerif, Display,MonoSpace }
+import Cart from './Cart/Cart'
+export { Header, Home, Serif, SansSerif, Display,MonoSpace,Cart }

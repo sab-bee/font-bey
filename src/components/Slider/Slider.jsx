@@ -11,7 +11,7 @@ const Slider = ({ handleFontSize, fontSize }) => {
         onChange={(e) => handleFontSize(e.target.value)}
       />
       <div>
-        <span style={{ color: 'gray', fontWeight: '500' }}>{fontSize}</span>
+        <span style={{ color: 'gray', fontWeight: '500' }}>{fontSize}px | {(fontSize/16).toFixed(2)} rem</span>
       </div>
     </SliderWraper>
   )

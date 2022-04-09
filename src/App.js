@@ -6,12 +6,10 @@ import './app.css'
 import { GlobalStyle } from './Theme/GlobalStyle'
 
 function App() {
-
   return (
     <>
       <GlobalStyle />
 
-     
       <Com.Header></Com.Header>
       <Routes>
         <Route path='/' element={<Com.Home></Com.Home>}></Route>

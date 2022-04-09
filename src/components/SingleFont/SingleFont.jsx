@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { CustomTextContext } from '../SearchEngine/SearchEngine'
 import * as S from './SingleFont.Styled'
 
-const SingleFont = ({ font, fontSize }) => {
+const SingleFont = ({ font, fontSize, handleCart }) => {
   const customText = useContext(CustomTextContext)
   const { family, category } = font
   const [fontWeight, setFontWeight] = useState(400)
@@ -22,9 +22,10 @@ const SingleFont = ({ font, fontSize }) => {
     const res = fontArr.join('+')
 
     url += `${res}:wght@300;400;500;600;700;800&display=swap');`
-    console.log(url)
+    navigator.clipboard.writeText(url)
   }
   // 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
   return (
     <S.Card>
       <S.CardBody>
@@ -56,7 +57,7 @@ const SingleFont = ({ font, fontSize }) => {
 
       <S.ButtonGroup>
         <button onClick={handleCopyFont}>copy</button>
-        <button>add</button>
+        <button onClick={() => handleCart(font)}>add</button>
       </S.ButtonGroup>
     </S.Card>
   )
