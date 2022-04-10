@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 
-function UseFonts(categories) {
+export const fontsContext = createContext()
+
+export function UseFonts(props) {
   const [fonts, setFonts] = useState([])
 
   // const apikey = 'AIzaSyC1NhmA4X2D6fS93J5pMX-wlAiyqfeRMV0'
   // const url =
   //   'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyC1NhmA4X2D6fS93J5pMX-wlAiyqfeRMV0'
 
-  const url = 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyC1NhmA4X2D6fS93J5pMX-wlAiyqfeRMV0&sort=popularity'
+  const url =
+    'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyC1NhmA4X2D6fS93J5pMX-wlAiyqfeRMV0&sort=popularity'
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -15,14 +18,5 @@ function UseFonts(categories) {
         setFonts(data.items)
       })
   }, [])
-
-  const customCactegory = fonts.filter((font) =>
-    categories.includes(font.category)
-  )
-  if (customCactegory.length !== 0) {
-    return customCactegory
-  }
-  return fonts
+  return <fontsContext.Provider value={fonts}>{props.children}</fontsContext.Provider>
 }
-
-export default UseFonts

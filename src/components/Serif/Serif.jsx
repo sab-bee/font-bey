@@ -1,10 +1,13 @@
-import React from 'react'
-import UseFonts from '../hooks/UseFonts'
+import React, { useContext } from 'react'
+import { fontsContext } from '../hooks/UseFonts'
 import SearchEngine from '../SearchEngine/SearchEngine'
 
 const Serif = () => {
-  const chooseCategory = ['serif']
-  const serifFonts = UseFonts(chooseCategory)
+  const categories = ['serif']
+  const allFonts = useContext(fontsContext)
+  const serifFonts = allFonts.filter((font) =>
+    categories.includes(font.category)
+  )
 
   return (
     <div>

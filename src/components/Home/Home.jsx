@@ -1,17 +1,10 @@
-import UseFonts from '../hooks/UseFonts'
+
+import { useContext } from 'react'
+import { fontsContext } from '../hooks/UseFonts'
 import SearchEngine from '../SearchEngine/SearchEngine'
 
 function Home() {
-  const chooseCategory = [
-    'sans-serif',
-    'serif',
-    'monospace',
-    'display',
-    'handwriting',
-  ]
-
-  const allFonts = UseFonts(chooseCategory)
-
+  const allFonts = useContext(fontsContext)
   return (
     <>
       <SearchEngine allFonts={allFonts}></SearchEngine>

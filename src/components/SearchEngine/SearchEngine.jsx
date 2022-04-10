@@ -10,6 +10,7 @@ const SearchEngine = ({ allFonts }) => {
   const [searchFonts, setSearchFonts] = useState([])
   const [fontsCount, setfontsCount] = useState(20)
   const [isSearched, setIsSearched] = useState(false)
+  const [limit, setLimit] = useState(0)
 
   const [customText, setCustomText] = useState(
     'A slow brown fox could not jump over the wall'
@@ -30,7 +31,9 @@ const SearchEngine = ({ allFonts }) => {
   }
 
   const writeSomethingHandler = (event) => {
-    setCustomText(event.target.value)
+    const value = event.target.value
+    if (customText.length < 35) return
+    setCustomText(value)
   }
 
  

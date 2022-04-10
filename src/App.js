@@ -4,10 +4,11 @@ import NotFound from './components/NotFound/NotFound'
 import './app.css'
 
 import { GlobalStyle } from './Theme/GlobalStyle'
+import { UseFonts } from './components/hooks/UseFonts'
 
 function App() {
   return (
-    <>
+    <UseFonts>
       <GlobalStyle />
 
       <Com.Header></Com.Header>
@@ -24,7 +25,7 @@ function App() {
         ></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
-    </>
+    </UseFonts>
   )
 }
 
