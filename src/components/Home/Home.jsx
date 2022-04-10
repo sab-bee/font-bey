@@ -4,7 +4,7 @@ import { fontsContext } from '../hooks/UseFonts'
 import SearchEngine from '../SearchEngine/SearchEngine'
 
 function Home() {
-  const allFonts = useContext(fontsContext)
+  const {fonts:allFonts} = useContext(fontsContext)
   return (
     <>
       <SearchEngine allFonts={allFonts}></SearchEngine>

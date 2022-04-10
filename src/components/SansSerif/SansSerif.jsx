@@ -3,12 +3,8 @@ import { fontsContext } from '../hooks/UseFonts'
 import SearchEngine from '../SearchEngine/SearchEngine'
 
 const SansSerif = () => {
-  const categories = ['sans-serif']
-  const allFonts = useContext(fontsContext)
-  const sansFonts = allFonts.filter((font) =>
-    categories.includes(font.category)
-  )
-
+  const {sans:sansFonts} = useContext(fontsContext)
+  
   return <SearchEngine allFonts={sansFonts}></SearchEngine>
 }
 
