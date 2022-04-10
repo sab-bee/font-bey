@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import * as S from './Cart.styled'
 
 const Cart = ({ cartFonts, handleRemoveThis }) => {
-  // const [fontLink, setFontLink] = useState('')
+  const [isCopied, setIsCopied] = useState(false)
+
   const getLink = () => {
+    if (cartFonts.length < 1) return
     const families = cartFonts.map((font) => {
       const family = font.family
       const arr = family.split(' ')
@@ -17,6 +20,12 @@ const Cart = ({ cartFonts, handleRemoveThis }) => {
     )
     const combined = famsWithWt.join('')
     navigator.clipboard.writeText(prefix + combined + postfix)
+
+    setIsCopied(true)
+
+    setTimeout(() => {
+      setIsCopied(false)
+    }, 1000)
   }
 
   return (
@@ -24,16 +33,21 @@ const Cart = ({ cartFonts, handleRemoveThis }) => {
       <S.Container>
         <div>
           <S.Title>Font Drop</S.Title>
-          { cartFonts.length === 0 ? <S.Empty>empty</S.Empty>:
-          cartFonts.map((font, index) => (
-            <Font
-              key={index}
-              font={font}
-              handleRemoveThis={handleRemoveThis}
-            ></Font>
-          ))}
+          {cartFonts.length === 0 ? (
+            <S.Empty>empty</S.Empty>
+          ) : (
+            cartFonts.map((font, index) => (
+              <Font
+                key={index}
+                font={font}
+                handleRemoveThis={handleRemoveThis}
+              ></Font>
+            ))
+          )}
         </div>
-        <S.CopyAllBtn onClick={getLink}>copy all</S.CopyAllBtn>
+        <S.CopyAllBtn onClick={getLink}>
+          {isCopied ? 'copied' : 'copy all'}
+        </S.CopyAllBtn>
       </S.Container>
     </S.Cart>
   )

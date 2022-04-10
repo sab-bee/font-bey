@@ -2,13 +2,15 @@ import WebFontConfig from 'webfontloader'
 import React, { useContext, useEffect, useState } from 'react'
 import { CustomTextContext } from '../SearchEngine/SearchEngine'
 import * as S from './SingleFont.Styled'
+import Slider from '../Slider/Slider'
 
-const SingleFont = ({ font, fontSize, handleAddToCart }) => {
+const SingleFont = ({ font, handleAddToCart }) => {
   const customText = useContext(CustomTextContext)
   const { family, category } = font
   const [fontWeight, setFontWeight] = useState(400)
   const [isCopied, setIsCopied] = useState(false)
   const [isAdded, setIsAdded] = useState(false)
+  const [fontSize, setFontSize] = useState(32)
 
   useEffect(() => {
     WebFontConfig.load({
@@ -30,7 +32,10 @@ const SingleFont = ({ font, fontSize, handleAddToCart }) => {
       setIsCopied(false)
     }, 1000)
   }
-  
+
+  const handleFontSize = (size) => {
+    setFontSize(size)
+  }
   // 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
   return (
@@ -61,7 +66,7 @@ const SingleFont = ({ font, fontSize, handleAddToCart }) => {
           <S.FontWeightButton onClick={()=>setFontWeight(300)} fw='300'><p>Aa</p></S.FontWeightButton>
         </S.BottomGroup>
       </S.CardBody>
-
+      <Slider handleFontSize={handleFontSize} fontSize={fontSize}></Slider>
       <S.ButtonGroup>
         <button onClick={handleCopyFont}>{isCopied ? 'copied' : 'copy'}</button>
         <button

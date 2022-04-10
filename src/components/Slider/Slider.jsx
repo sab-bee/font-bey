@@ -3,31 +3,36 @@ import styled from 'styled-components'
 const Slider = ({ handleFontSize, fontSize }) => {
   return (
     <SliderWraper>
-      <StyledSlider
-        type='range'
-        min={8}
-        max={80}
-        value={fontSize}
-        onChange={(e) => handleFontSize(e.target.value)}
-      />
-      <div>
-        <Unit>
-          {fontSize}px | {(fontSize / 16).toFixed(2)} rem
-        </Unit>
-      </div>
+      <RangeWraper>
+        <Range
+          type='range'
+          min={8}
+          max={80}
+          value={fontSize}
+          onChange={(e) => handleFontSize(e.target.value)}
+        />
+      </RangeWraper>
+      <UnitWraper>
+        <Unit>{fontSize}px | {(fontSize / 16).toFixed(2)} rem</Unit>
+      </UnitWraper>
     </SliderWraper>
   )
 }
 
-export const SliderWraper = styled.div`
+const SliderWraper = styled.div`
   margin: 1.5rem 0;
-  width: 85%;
-  justify-content: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
+  justify-items: center;
   gap: 1rem;
 `
-const StyledSlider = styled.input`
+const RangeWraper = styled.div`
+  width: 50%;
+`
+
+const UnitWraper = styled.div``
+const Range = styled.input`
   -webkit-appearance: none;
   height: 5px;
   margin: 10px 0;
@@ -59,8 +64,8 @@ const StyledSlider = styled.input`
   }
 `
 
-export const Unit = styled.span`
-  font-weight:500;
-  color: #2196F3;
+const Unit = styled.span`
+  font-weight: 500;
+  color: #2196f3;
 `
 export default Slider
